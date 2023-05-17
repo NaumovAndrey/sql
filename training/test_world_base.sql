@@ -53,3 +53,11 @@ FROM city
 ORDER BY rand()
 LIMIT 20;
 
+#Сохранение в файл
+SELECT Continent, SUM(Population) INTO OUTFILE 'E:\\mysql\\query.txt'
+FROM country
+GROUP BY 1
+HAVING SUM(Population);
+
+SHOW VARIABLES LIKE "secure_file_priv";
+
