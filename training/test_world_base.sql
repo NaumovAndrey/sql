@@ -61,3 +61,7 @@ HAVING SUM(Population);
 
 SHOW VARIABLES LIKE 'secure_file_priv';
 
+#Переменные (селекторы)
+SELECT SUM(Population) INTO @count FROM country;
+SELECT @count;
+
