@@ -1,0 +1,12 @@
+SHOW DATABASES;
+
+CREATE TABLE Customer (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    Age INT,
+    FirstName VARCHAR(20),
+    LastName VARCHAR(20)
+);
+
+SELECT * FROM Customer;
+
+
