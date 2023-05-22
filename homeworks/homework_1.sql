@@ -63,3 +63,35 @@ SELECT *
 FROM cell_phones
 WHERE product_name
     LIKE '%8%';
+
+# LESSON2
+#_______________________________________
+
+SELECT *
+FROM cell_phones
+WHERE manufacturer = 'samsung' AND price > 50000;
+
+SELECT *
+FROM cell_phones
+WHERE NOT manufacturer = 'Samsung' AND price > 50000;
+
+SELECT product_name, product_count,
+CASE
+    WHEN product_count = 1 THEN 'критический остаток(1)'
+    WHEN product_count > 2 AND product_count < 6 THEN 'товар заканчивается(менее 5)'
+    WHEN product_count > 5 AND product_count < 10 THEN 'в наличии более 5 шт'
+    ELSE 'в избытке'
+END AS Catalog
+FROM cell_phones;
+
+SELECT product_name, manufacturer, product_count,
+       IF (product_count > 3, 'В избытке', 'Наисходе') AS Catalog
+FROM cell_phones;
+
+SELECT *
+FROM cell_phones
+WHERE manufacturer  IN ('Apple', 'Samsung');
+
+SELECT *
+FROM cell_phones
+WHERE NOT manufacturer  IN ('Apple', 'Samsung');
