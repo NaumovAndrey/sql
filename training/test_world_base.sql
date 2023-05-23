@@ -65,3 +65,7 @@ SHOW VARIABLES LIKE 'secure_file_priv';
 SELECT SUM(Population) INTO @count FROM country;
 SELECT @count;
 
+SELECT *
+FROM city
+WHERE id BETWEEN 2344 AND 2346;
+
