@@ -1,6 +1,3 @@
-#Работаю через datagrip, тренируюсь через простое написание запроса, а не графического интерфейса.
-
-
 CREATE DATABASE hwgb;
 
 USE hwgb;
@@ -63,6 +60,10 @@ SELECT *
 FROM cell_phones
 WHERE product_name
     LIKE '%8%';
+
+ALTER TABLE cell_phones
+ADD id INTEGER PRIMARY KEY AUTO_INCREMENT
+    AFTER product_name;
 
 # LESSON2
 #_______________________________________
