@@ -5,12 +5,19 @@ SELECT DISTINCT firstname
 FROM users
 ORDER BY firstname;
 
+-- Вариант 2
+SELECT firstname FROM users GROUP BY firstname ORDER BY firstname;
+
 # Выведите количество мужчин старше 35 лет [COUNT].
 DESC profiles;
 
 SELECT COUNT(birthday)
 FROM profiles
-WHERE (birthday + INTERVAL 35 YEAR ) <  NOW();
+WHERE (birthday + INTERVAL 35 YEAR ) <  NOW()
+AND gender = 'm';
+
+-- Вариант 2
+SELECT * FROM profiles WHERE TIMESTAMPDIFF(YEAR, birthday, NOW()) > 35 AND gender = 'm' ORDER BY birthday;
 
 # Сколько заявок в друзья в каждом статусе? (таблица friend_requests) [GROUP BY]
 DESC friend_requests;
@@ -36,3 +43,6 @@ LIMIT 1;
 SELECT name_group_id, name_group
 FROM group_members
 WHERE name_group LIKE '_____';
+
+-- Вариант 2
+SELECT id, name FROM communities WHERE name LIKE '_____';
