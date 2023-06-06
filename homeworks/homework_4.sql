@@ -31,20 +31,20 @@ ORDER BY count(*) DESC
 LIMIT 1;
 
 select
-	from_user_id
-	, concat(u.firstname, ' ', u.lastname) as name
-	, count(*) as 'messages count'
+	from_user_id,
+	concat(u.firstname, ' ', u.lastname) as name,
+	count(*) as 'messages count'
 from messages m
 join users u on u.id = m.from_user_id
 where to_user_id = 1
 group by from_user_id
-order by count(*) desc
+order by count(*) DESC
 limit 1;
 
 
 
 # * Подсчитать общее количество лайков, которые получили пользователи младше 18 лет..
-SELECT count(likes.id) AS count_likes
+SELECT COUNT(likes.id) AS count_likes
 FROM likes
 JOIN media on likes.media_id = media.id
 JOIN profiles p on p.user_id = media.user_id
@@ -65,4 +65,6 @@ SELECT gender FROM (
 GROUP BY gender
 ORDER BY MAX(gender_likes_count) DESC
 LIMIT 1;
+
+SELECT  gender, COUNT(*) FROM likes JOIN profiles ON likes.user_id = profiles.user_id GROUP BY gender;
 
