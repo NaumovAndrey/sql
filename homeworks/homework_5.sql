@@ -27,3 +27,20 @@ DESC media;
 DESC users;
 
 SELECT user_id, COUNT(*) FROM media JOIN users ON users.id = media.user_id GROUP BY user_id;
+
+-- после семинара (CTE)
+WITH cte AS (
+    SELECT
+        user_id,
+        COUNT(*) AS cnt
+    FROM media
+        JOIN users
+            ON users.id = media.user_id
+    GROUP BY user_id)
+SELECT
+    cnt,
+    user_id,
+    email
+FROM cte
+    JOIN users
+        ON users.id = cte.user_id;
